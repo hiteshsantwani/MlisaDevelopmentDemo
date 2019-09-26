@@ -2,7 +2,7 @@ function fileMessage() {
   
     var ID = $('#pfId')[0].innerText;
 
-    var url = new URL("https://localhost:55530/api/mlisa/pf_FixtureMessagesFront");
+    var url = new URL("http://localhost:55530/api/mlisa/pf_FixtureMessagesFront");
     $("#FileMessageInput").toggle();
         $.ajax({
 
