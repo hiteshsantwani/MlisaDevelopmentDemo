@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <style>
+         body {
+         }K
+         button {
+         width: 150px;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top: 2px;
+         }
+         iframe {
+         display: block;
+         }
+         MLISACtls {
+         }
+		 
+		 <!-- .center-div
+			{
+			  position: absolute;
+			  margin: auto;
+			  top: 0;
+			  right: 0;
+			  bottom: 0;
+			  left: 0;
+			  width: 100px;
+			  height: 100px;
+			  background-color: #ccc;
+			  border-radius: 3px;
+			} -->
+		 
+      </style>
+	   
+      <!-- Latest compiled and minified CSS -->
+	   
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	  
+      <link href="https://unpkg.com/tabulator-tables@4.4.1/dist/css/tabulator_modern.min.css" rel="stylesheet">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.4.1/dist/js/tabulator.min.js"></script>
+	   
+      <script type="text/javascript" src="https://dl.frontapp.com/libs/frontjs.min.js"></script>
+      <script type="text/javascript" src="test-plugin_Demo.js"></script>
+      <script type="text/javascript" src="File_Message.js"></script>
+      <script type="text/javascript" src="AttachmentViewer.js"></script>
+	     
+
+   </head>
+   
+   <body>
+   
+      <script src="PullInData.js">
+      </script>
+	  
+	  <script src="PopulateTheTabData.js">
+      </script>
+	  
+      <div id="makeMeScrollable" class="container-fluid">
+      <span align="Center">
+         <b>
+            <p>MLISA Post Fixture</p>
+         </b>
+      </span>
+      <div class="row">
+	 
+		  <label for="FixtureSearch">Vessel Name:</label>
+		  
+		  <i class="fas fa-search" aria-hidden="true"></i>
+		  <input class="form-control form-control-sm ml-3 w-75" type="text" id="FixtureSearch" aria-label="FixtureSearch" required="required" minlength="4" maxlength="256" size="40">
+		  
+		  <label for="FixtureNumberSearch">Fixture #:</label>
+		 
+		  <i class="fas fa-search" aria-hidden="true"></i>
+		  <input class="form-control form-control-sm ml-3 w-75" type="text" id="FixtureNumberSearch" aria-label="FixtureNumberSearch" minlength="4" maxlength="256" size="40">
+		 
+		  <button class="btn btn-primary" onClick="myFunction()">Search</button>
+      <button class="btn btn-primary" onClick="openRequestedPopup()">Click</button>
+
+	  </div>
+	  </br>
+
+    <div class="container">
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+		<div style="text-align: center">
+          <a data-toggle="collapse" href="#collapse1">Click Here to Expand/Collapse The Search Results</a>
+		</div>
+        </h4>
+      </div>
+	<div id="collapse1" class="panel-collapse collapse">
+		<div id="myData"></div>
+	</div>
+      </div>
+    </div>
+  </div>
+
+    <table class="table table-hover">
+	<tr>
+	<td>
+		<h4>C/P: <span class="label label-info" id="Labelcp"></span></h4>
+	</td>
+	<td>
+		<h4>Charterer: <span class="label label-info" id="LabelCharterer"></span></h4>
+	</td>
+	<td>
+		<h4>Eff. Ctl: <span class="label label-info" id="LabelEffectiveControl"></span></h4>
+	</td>
+	<td>
+		<h4>Lay Date: <span class="label label-info" id="LabelLayDate"></span></h4>
+    </div>
+	</td>
+  </tr>
+	<tr>
+	<td>
+    <div class="form-group row">
+		<h4>Cargo: <span class="label label-info" id="LabelCargo"></span></h4>
+	</td>
+	<td>
+		<h4>Size: <span class="label label-info" id="LabelSize"></span></h4>
+	</td>
+	<td>
+		<h4>Status: <span class="label label-info" id="LabelStatus"></span></h4>
+	 </td>
+	</tr>
+    </table>
+
+  <label hidden id="pfId"></label>
+  <label hidden id="MessageId"></label>
+  <label hidden id="MessageDate"></label>
+
+    <div>
+    <ul class="nav nav-tabs">
+        <li><a class="active" id="Messages" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Messages</a></li>
+        <li><a class="active" id="Attachments" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Attachments</a></li>
+        <li><a class="active" id="Alerts" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Alerts</a></li>
+        <li><a class="active" id="Notes" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Notes</a></li>
+        <li><a class="active" id="Itinerary" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Itinerary</a></li>
+        <li><a class="active" id="Claims" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Claims</a></li>
+        <li><a class="active" id="Freight" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Freight/Commissions</a></li>
+        <li><a class="active" id="Invoicing" onclick='PopulateData(this.id, document.getElementById("pfId").innerHTML)' data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Invoicing</a></li>
+    </ul>
+	</div>
+
+    <!-- Collapsible element -->
+    <div class="collapse" id="collapseExample">
+        <div class="container">
+			
+          <div id="RelatedData"></div>
+          <div id="AdjacentRelatedData"></div>
+          
+          <button id="FileMessageButton" onClick="ShowHideDetails()">File</button>
+          <button onClick="toggleArchive()">Chrt Reply</button>
+          <button onClick="toggleTrashed()">Owner Reply</button>
+
+          <div hidden id="FileMessageInput">
+            <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Sender Recipients</span>
+            </div>
+              <input id="SenderRecipients" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Subject</span>
+            </div>
+              <input id="Subject" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Description</span>
+            </div>
+              <input id="Description" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Status</span>
+            </div>
+              <input id="Status" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <button type="button" class="btn btn-primary" onClick="fileMessage()">Complete Filing</button>
+          </div>
+        </div>
+    </div>
+	
+	<div id="StaticParameters">
+	  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>L/D Ports:</th>
+        <th>Itinerary:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><h4>Activity: <span class="label label-info" id="LabelActivity"></span></h4></td>
+        <td><h4>Last Port Activity ETA: <span class="label label-info" id="LabelLastPort"></span></h4></td>
+      </tr>
+      <tr>
+        <td><h4>Load: <span class="label label-info" id="LabelLoad"></span></h4></td>
+        <td><h4>GOLA Load: <span class="label label-info" id="LabelGola"></span></h4></td>
+      </tr>
+      <tr>
+        <td><h4>Disch: <span class="label label-info" id="LabelDischarge"></span></h4></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+	</div>
+      </div>
+   </body>
+</html>
