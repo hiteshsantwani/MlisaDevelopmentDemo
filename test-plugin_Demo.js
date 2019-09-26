@@ -16,9 +16,9 @@ Front.on('conversation', function (data) {
 
   document.getElementById("MessageId").innerHTML = data.message.id;
   document.getElementById("MessageDate").innerHTML = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
-  document.getElementById("SenderRecipients").innerHTML = data.message.recipients;
-  document.getElementById("Subject").innerHTML = data.message.Subject;
-  document.getElementById("Description").innerHTML = data.message.text;
+  document.getElementById("SenderRecipients").value = data.message.recipients;
+  document.getElementById("Subject").value = data.message.Subject;
+  document.getElementById("Description").value = data.message.text;
 
   conversation = data.conversation;
 });
