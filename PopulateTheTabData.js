@@ -4,31 +4,31 @@ function PopulateData(tab, id) {
 
     switch(tab) {
         case "Messages":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_MessagesFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_MessagesFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         case "Attachments":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_AttachmentFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_AttachmentFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         case "Alerts":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_AlertFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_AlertFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         case "Notes":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_ItineraryFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_ItineraryFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         case "Itinerary":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_ItineraryFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_ItineraryFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         case "Invoicing":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_InvoiceFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_InvoiceFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         case "Claims":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_ClaimFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_ClaimFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         case "Freight":
-                url = new URL("https://10.10.14.24/api/mlisa/pf_CommissionFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_CommissionFrontApp?pf_Id=" + encodeURIComponent(id));
             break;
         default:
-                url = new URL("https://10.10.14.24/api/mlisa/pf_ItineraryFrontApp?pf_Id=" + encodeURIComponent(id));
+                url = new URL("https://localhost:55530/api/mlisa/pf_ItineraryFrontApp?pf_Id=" + encodeURIComponent(id));
     }
 
     var table = new Tabulator("#RelatedData", {

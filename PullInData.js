@@ -19,7 +19,7 @@
 		if (fixtureName === "" && fixtureNumber === ""){
 			return;
 		}
-		var url = new URL("https://10.10.14.24/api/mlisa/pf_FixturesFrontApp?VesselName=" + encodeURIComponent(fixtureName) + "&FixtureNumber=" + encodeURIComponent(fixtureNumber));
+		var url = new URL("https://localhost:55530/api/mlisa/pf_FixturesFrontApp?VesselName=" + encodeURIComponent(fixtureName) + "&FixtureNumber=" + encodeURIComponent(fixtureNumber));
 		
 		//define table
 		var table = new Tabulator("#myData", {
