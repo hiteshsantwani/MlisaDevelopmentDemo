@@ -19,6 +19,7 @@ Front.on('conversation', function (data) {
   document.getElementById("SenderRecipients").value = data.message.recipients.map(function(elem){ return elem.handle;}).join(",");
   document.getElementById("Subject").value = data.message.subject;
   document.getElementById("Description").value = data.message.text;
+  document.getElementById("Status").value = data.message.status;
 
   conversation = data.conversation;
 });
