@@ -4,7 +4,7 @@
    <head>
       <style>
          body {
-         }K
+         }
          button {
          width: 150px;
          margin-left: auto;
@@ -36,11 +36,18 @@
       <!-- Latest compiled and minified CSS -->
 	   
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	  
       <link href="https://unpkg.com/tabulator-tables@4.4.1/dist/css/tabulator_modern.min.css" rel="stylesheet">
 
       <!-- jQuery library -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      <link href="http://code.jquery.com/ui/1.12.0-rc.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+      <script src="YourJquery source path"></script>
+      <script src="http://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.js" ></script>
+
       <!-- Latest compiled JavaScript -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.4.1/dist/js/tabulator.min.js"></script>
@@ -49,12 +56,11 @@
       <script type="text/javascript" src="test-plugin_Demo.js"></script>
       <script type="text/javascript" src="File_Message.js"></script>
       <script type="text/javascript" src="AttachmentViewer.js"></script>
-	     
-
+      <script type="text/javascript" src="AutoComplete.js"></script>
+      
    </head>
    
    <body>
-   
       <script src="PullInData.js">
       </script>
 	  
@@ -83,24 +89,23 @@
       <button class="btn btn-primary" onClick="openRequestedPopup()">Click</button>
 
 	  </div>
-	  </br>
-
-    <div class="container">
-  <div class="panel-group">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-		<div style="text-align: center">
-          <a data-toggle="collapse" href="#collapse1">Click Here to Expand/Collapse The Search Results</a>
-		</div>
-        </h4>
-      </div>
-	<div id="collapse1" class="panel-collapse collapse">
-		<div id="myData"></div>
-	</div>
+	    </br>
+    <div class="container" id="SearchResults">
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <div style="text-align: center">
+                  <a data-toggle="collapse" href="#collapse1">Click Here to Expand/Collapse The Search Results</a>
+            </div>
+          </h4>
+        </div>
+          <div id="collapse1" class="panel-collapse collapse">
+            <div id="myData"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
     <table class="table table-hover">
 	<tr>
@@ -135,6 +140,7 @@
   <label hidden id="pfId"></label>
   <label hidden id="MessageId"></label>
   <label hidden id="MessageDate"></label>
+  <label hidden id="VesselNames"></label>
 
     <div>
     <ul class="nav nav-tabs">
