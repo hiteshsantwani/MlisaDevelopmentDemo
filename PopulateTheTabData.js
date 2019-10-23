@@ -1,7 +1,5 @@
 function PopulateData(tab, id) {
-
     var url;
-
     switch(tab) {
         case "Messages":
                 url = new URL("http://localhost:55530/api/mlisa/pf_MessagesFrontApp?pf_Id=" + encodeURIComponent(id));
