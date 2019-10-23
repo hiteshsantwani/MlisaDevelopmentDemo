@@ -32,7 +32,6 @@ function PopulateData(tab, id) {
     }
 
     var table = new Tabulator("#RelatedData", {
-
         height:"311px",
         layout:"fitColumns",
         placeholder:"No Data Set",
