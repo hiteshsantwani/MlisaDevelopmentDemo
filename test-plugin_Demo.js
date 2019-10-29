@@ -4,9 +4,8 @@ Front.on('conversation', function (data) {
   console.log('Message', data.message);
 
   timestamp = data.message.date;
-
+  
   var date = new Date(timestamp);
-
   var year = date.getFullYear();
   var month = date.getMonth() + 1;
   var day = date.getDate();
