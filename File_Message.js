@@ -1,7 +1,5 @@
 function fileMessage() {
-  
     var ID = $('#pfId')[0].innerText;
-
     var url = new URL("http://localhost:55530/api/mlisa/pf_FixtureMessagesFront");
     $("#FileMessageInput").toggle();
         $.ajax({
@@ -57,7 +55,6 @@ function uuidv4() {
   }
   
   console.log(uuidv4());
-
 
   function ShowHideDetails() {
 
